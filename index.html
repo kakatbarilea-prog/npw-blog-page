@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Navarro Pressure Washing — Blog</title>
+<style>
+  :root{
+    --bg:#f7f9fc;        /* page background */
+    --card:#ffffff;       /* cards + sidebar */
+    --ink:#243048;        /* primary text */
+    --muted:#667085;      /* secondary text */
+    --line:#e6ebf2;       /* subtle borders */
+    --brand:#0F2D56;      /* deep navy accent */
+    --brand-2:#0b62ff;    /* action link/hover */
+    --radius:16px;        /* rounded corners */
+    --shadow:0 8px 24px rgba(16,24,40,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+  a{color:var(--brand-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1200px;margin:0 auto;padding:28px 16px}
+  /* Header */
+  .page-head{margin:8px 0 20px}
+  .page-head h1{margin:0;font-size:38px;letter-spacing:.2px}
+  .sub{color:var(--muted)}
+  /* Grid */
+  .grid{display:grid;grid-template-columns:1.8fr .9fr;gap:22px}
+  @media (max-width:1024px){.grid{grid-template-columns:1fr}}
+  /* Posts list */
+  .post{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .post+.post{margin-top:18px}
+  .post-media{position:relative;aspect-ratio:16/9;background:#dbe4f0}
+  .post-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .post-body{padding:18px}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:8px}
+  .cat{background:#eef4ff;color:#0b3db3;padding:4px 10px;border-radius:999px;font-weight:600}
+  .post h2{margin:6px 0 10px;font-size:22px;line-height:1.25}
+  .excerpt{color:var(--muted);line-height:1.6}
+  .post-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .readmore{display:inline-flex;align-items:center;gap:8px;border:1px solid #d7def0;padding:10px 14px;border-radius:12px;font-weight:600}
+  .readmore:hover{border-color:#b9c6ea;background:#f5f8ff;text-decoration:none}
+  /* Pagination */
+  .pager{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0}
+  .pager a{border:1px solid var(--line);background:var(--card);padding:10px 14px;border-radius:12px}
+  .pager a.active{background:#eef4ff;border-color:#d0dfff;color:#0b3db3;font-weight:700}
+  /* Sidebar */
+  .side{position:sticky;top:14px;height:max-content}
+  .widget{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .widget+.widget{margin-top:16px}
+  .widget h3{margin:0;padding:14px 16px;border-bottom:1px solid var(--line);font-size:16px;letter-spacing:.3px}
+  .catlist{list-style:none;margin:0;padding:8px 8px 12px}
+  .catlist li{margin:0}
+  .catlist a{display:flex;align-items:center;justify-content:space-between;padding:10px 10px;border-radius:10px;color:var(--ink)}
+  .catlist a:hover{background:#f6f9ff}
+  .count{color:var(--muted);font-size:12px}
+  /* Subposts (revealed under a clicked category) */
+  .subposts{list-style:none;margin:0 0 6px 0;padding:6px 10px 10px 14px;border-left:2px solid #e1e8f8;display:none}
+  .subposts li{margin:6px 0}
+  .subposts a{display:block;padding:6px 6px 6px 4px;color:var(--muted);font-size:14px}
+  .subposts a:hover{color:var(--ink);text-decoration:underline}
+  .catlist li.open > a{background:#eef4ff}
+
+  /* ===== Quote Form (added) ===== */
+  .quote-wrap{padding:14px 16px}
+  .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .quote-grid .full{grid-column:1 / -1}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;color:var(--muted)}
+  .field input,.field textarea{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;
+    font:inherit;color:var(--ink);outline:none
+  }
+  .field input:focus,.field textarea:focus{border-color:#c9d6f2;box-shadow:0 0 0 3px rgba(11,98,255,.08)}
+  .field textarea{min-height:110px;resize:vertical}
+  .btn-send{
+    display:inline-flex;justify-content:center;align-items:center;width:100%;
+    padding:12px 14px;border:none;border-radius:12px;background:var(--brand);color:#fff;font-weight:700;cursor:pointer
+  }
+  .btn-send:hover{filter:brightness(1.05)}
+  .small-note{font-size:12px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Page Heading -->
+    <header class="page-head">
+      <div>
+        <h1>Tips & Guides</h1>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- MAIN COLUMN: POSTS LIST -->
+      <section aria-label="Blog posts">
+
+        <!-- POST 1 (Most Recent) -->
+        <article class="post">
+          <div class="post-media">
+            <img src="https://www.navarropressurewashing.com/wp-content/uploads/2023/12/Pressure-Washing-Company-in-Old-Bridge-NJ.jpg" alt="Freshly cleaned concrete driveway in New Jersey suburb" />
+          </div>
+          <div class="post-body">
+            <div class="meta">
+              <span>Aug 18, 2025</span>
+              <span>•</span>
+              <span class="cat">Concrete Cleaning</span>
+              <span class="cat">Driveway Cleaning</span>
+            </div>
+            <h2>How to Remove Summer Oil & Rust Stains from NJ Driveways</h2>
+            <p class="excerpt">Leaking engines and lawn tools can leave stubborn stains on concrete and pavers. Here’s our process for pretreating, softening, and safely lifting residues without etching surfaces — plus when to call a pro in Middlesex and Monmouth counties.</p>
+            <div class="post-actions">
+              <a class="readmore" href="#">Read Article</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- POST 2 -->
+        <article class="post">
+          <div class="post-media">
+            <img src="https://www.navarropressurewashing.com/wp-content/uploads/2023/12/Pressure-Washing-Companies-in-Old-Bridge-NJ.png" alt="Soft-washed asphalt shingle roof on a New Jersey colonial home" />
+          </div>
+          <div class="post-body">
+            <div class="meta">
+              <span>Aug 7, 2025</span>
+              <span>•</span>
+              <span class="cat">Roof Cleaning</span>
+            </div>
+            <h2>Roof Streaks in Humid Weather: Why Soft Washing Protects Shingles</h2>
+            <p class="excerpt">Black streaks and moss accelerate granule loss and shorten roof life. We break down a gentle, manufacturer-approved approach for New Jersey homes — what to expect, timelines, and how to keep algae at bay between seasons.</p>
+            <div class="post-actions">
+              <a class="readmore" href="#">Read More</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- POST 3 -->
+        <article class="post">
+          <div class="post-media">
+            <img src="https://www.navarropressurewashing.com/wp-content/uploads/2023/12/Power-Washing-Old-Bridge-NJ.png" alt="Cedar deck after professional washing and brightening in New Jersey" />
+          </div>
+          <div class="post-body">
+            <div class="meta">
+              <span>Jul 22, 2025</span>
+              <span>•</span>
+              <span class="cat">Deck Cleaning</span>
+            </div>
+            <h2>Deck Cleaning vs. Brightening vs. Sealing: What’s the Difference?</h2>
+            <p class="excerpt">If your deck looks gray or blotchy, a one-size-fits-all wash won’t cut it. Learn how we sequence cleaning, neutralizing, and sealing steps to protect wood grain — with tips for composite and PVC decks common across NJ.</p>
+            <div class="post-actions">
+              <a class="readmore" href="#">Read Article</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- POST 4 -->
+        <article class="post">
+          <div class="post-media">
+            <img src="https://www.navarropressurewashing.com/wp-content/uploads/elementor/thumbs/Deck-Featured-Image-r9adjtw6ec6yr98khdxdsgg2pwa1wfi91sbwma016o.png" alt="Two-story New Jersey home after soft house washing" />
+          </div>
+          <div class="post-body">
+            <div class="meta">
+              <span>Jul 5, 2025</span>
+              <span>•</span>
+              <span class="cat">House Washing</span>
+            </div>
+            <h2>Soft Washing Siding: Safe Algae Removal for Vinyl, Brick & Stucco</h2>
+            <p class="excerpt">High pressure can damage siding. Here’s how soft washing lifts organic growth and road film while protecting sealants, trims, and nearby landscaping — tuned for NJ neighborhoods close to the shore.</p>
+            <div class="post-actions">
+              <a class="readmore" href="#">Read More</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pagination (optional) -->
+        <nav class="pager" aria-label="Pagination">
+          <a href="#" aria-label="Previous page">‹ Prev</a>
+          <a class="active" href="#" aria-current="page">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#" aria-label="Next page">Next ›</a>
+        </nav>
+      </section>
+
+      <!-- SIDEBAR: CATEGORIES -->
+      <aside class="side" aria-label="Sidebar">
+        <div class="widget">
+          <h3>Categories</h3>
+          <ul class="catlist" id="catlist">
+            <li>
+              <a href="#" data-cat="residential">Residential Pressure Washing <span class="count">(12)</span></a>
+              <ul class="subposts" id="cat-residential" aria-hidden="true">
+                <li><a href="#">5 Signs Your NJ Home Needs a Full Exterior Wash</a></li>
+                <li><a href="#">How Often Should You Wash Siding in Coastal New Jersey?</a></li>
+                <li><a href="#">Before & After: Transformations from Monmouth County</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="commercial">Commercial Pressure Washing <span class="count">(9)</span></a>
+              <ul class="subposts" id="cat-commercial" aria-hidden="true">
+                <li><a href="#">Curb Appeal for NJ Retail Centers: Entryways that Convert</a></li>
+                <li><a href="#">Grease, Gum & Grime: Keeping Walkways Safe for Visitors</a></li>
+                <li><a href="#">Property Manager’s Checklist: Seasonal Exterior Care</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="house">House Washing <span class="count">(15)</span></a>
+              <ul class="subposts" id="cat-house" aria-hidden="true">
+                <li><a href="#">Soft Washing vs. Pressure Washing for Vinyl Siding</a></li>
+                <li><a href="#">Removing Algae Streaks Safely: What NJ Homeowners Should Know</a></li>
+                <li><a href="#">Siding Care Calendar for Central & Coastal NJ</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="roof">Roof Cleaning <span class="count">(11)</span></a>
+              <ul class="subposts" id="cat-roof" aria-hidden="true">
+                <li><a href="#">The Truth About Gloeocapsa Magma (Black Streaks) on Shingles</a></li>
+                <li><a href="#">Soft Washing Asphalt Roofs: Manufacturer-Aligned Methods</a></li>
+                <li><a href="#">Moss vs. Algae: What’s on Your NJ Roof?</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="deck">Deck Cleaning <span class="count">(8)</span></a>
+              <ul class="subposts" id="cat-deck" aria-hidden="true">
+                <li><a href="#">Deck Brightening 101: Why Neutralizing Matters</a></li>
+                <li><a href="#">Protecting Cedar & Pressure-Treated Lumber After Cleaning</a></li>
+                <li><a href="#">Composite Deck Care: Avoiding Tiger-Striping</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="patio">Patio Cleaning <span class="count">(7)</span></a>
+              <ul class="subposts" id="cat-patio" aria-hidden="true">
+                <li><a href="#">Paver Patio Refresh: From Weed Lines to Like-New</a></li>
+                <li><a href="#">Polymeric Sand: When & Why to Re-Sand Joints</a></li>
+                <li><a href="#">De-Staining Natural Stone Without Etching</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="concrete">Concrete / Driveway Cleaning <span class="count">(10)</span></a>
+              <ul class="subposts" id="cat-concrete" aria-hidden="true">
+                <li><a href="#">Oil, Rust & Leaf Stains: Targeted Treatments That Work</a></li>
+                <li><a href="#">Surface Cleaner vs. Wand: When to Use Each</a></li>
+                <li><a href="#">Winter Prep: Sealing NJ Driveways Before Freeze-Thaw</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="soft">Soft Washing <span class="count">(13)</span></a>
+              <ul class="subposts" id="cat-soft" aria-hidden="true">
+                <li><a href="#">What Soft Washing Really Means (and What It Isn’t)</a></li>
+                <li><a href="#">Delicate Surfaces: Stucco, Dryvit & Painted Wood</a></li>
+                <li><a href="#">Chemistry Basics: Dwell Time and Rinse Strategy</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="seasonal">Seasonal Maintenance <span class="count">(6)</span></a>
+              <ul class="subposts" id="cat-seasonal" aria-hidden="true">
+                <li><a href="#">Spring Start: Post-Pollen Cleanup for Siding & Windows</a></li>
+                <li><a href="#">Fall Checklist: Gutters, Patios & Driveways</a></li>
+                <li><a href="#">Storm Aftercare Along the Jersey Shore</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-cat="paint">Paint &amp; Surface Protection <span class="count">(5)</span></a>
+              <ul class="subposts" id="cat-paint" aria-hidden="true">
+                <li><a href="#">Pre-Paint Wash: Getting Surfaces Ready for Coatings</a></li>
+                <li><a href="#">Avoiding Flashing & Peeling: Prep Done Right</a></li>
+                <li><a href="#">Sealants vs. Stains: Where Each Belongs</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ===== NEW: Request a Quote form widget ===== -->
+        <div class="widget" aria-labelledby="quote-title">
+          <h3 id="quote-title">Request a Quote</h3>
+          <form class="quote-wrap" action="#" method="post" onsubmit="event.preventDefault(); alert('Thanks! We\\'ll be in touch shortly.');">
+            <div class="quote-grid">
+              <div class="field">
+                <label for="q-first">First Name</label>
+                <input id="q-first" name="first_name" type="text" autocomplete="given-name" required />
+              </div>
+              <div class="field">
+                <label for="q-last">Last Name</label>
+                <input id="q-last" name="last_name" type="text" autocomplete="family-name" required />
+              </div>
+              <div class="field">
+                <label for="q-email">Email</label>
+                <input id="q-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="q-phone">Phone</label>
+                <input id="q-phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+              <div class="field full">
+                <label for="q-message">Message</label>
+                <textarea id="q-message" name="message" placeholder="Tell us about your project…" required></textarea>
+              </div>
+              <div class="full">
+                <button class="btn-send" type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- ===== End new widget ===== -->
+
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Toggle category sublists; left column remains untouched
+    (function(){
+      const list = document.getElementById('catlist');
+      if(!list) return;
+
+      function closeAll(){
+        list.querySelectorAll('li.open').forEach(li=>{
+          li.classList.remove('open');
+          const sub = li.querySelector('.subposts');
+          if(sub){ sub.style.display = 'none'; sub.setAttribute('aria-hidden','true'); }
+        });
+      }
+
+      list.addEventListener('click', function(ev){
+        const a = ev.target.closest('a[data-cat]');
+        if(!a) return;
+        ev.preventDefault();
+        const li = a.parentElement;
+        const sub = li.querySelector('.subposts');
+        if(!sub) return;
+        const isOpen = li.classList.contains('open');
+        closeAll();
+        if(!isOpen){
+          li.classList.add('open');
+          sub.style.display = 'block';
+          sub.setAttribute('aria-hidden','false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
